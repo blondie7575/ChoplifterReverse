@@ -1,0 +1,9 @@
+MEMORY {
+	LORAM:	start = $0800, size = $1800, file = "CHOP0";
+	HIRAM:	start = $6000, size = $6000, file = "CHOP1";
+}
+
+SEGMENTS {
+	LOCODE:	load = LORAM, type = rw;
+	HICODE:	load = HIRAM, type = rw;
+}
