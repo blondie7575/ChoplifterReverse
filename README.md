@@ -9,7 +9,7 @@ For a full writeup about this reverse-engineer and how it was done (along with l
 [https://blondihacks.com/?p=9505](url)
 
 
-This reverse engineer was complete by me, Quinn Dunki, on May 12, 2024, but this is of course still Dan's game and it is a brilliant piece of work. Reverse engineering it only *increased* my admiration of it. I doubt anyone would say that about most of what I've written in my career. 😁
+This reverse engineer was completed by me, Quinn Dunki, on May 12, 2024, but this is of course still Dan's game and it is a brilliant piece of work. Reverse engineering it only *increased* my admiration of it. I doubt anyone would say that about most of what I've written in my career. 😁
 
 Thanks Dan, for writing one of the best games on the platform, and I hope you don't mind that I did this to it.
 
