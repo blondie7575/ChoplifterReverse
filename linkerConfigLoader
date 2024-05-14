@@ -1,0 +1,11 @@
+MEMORY {
+	MAIN:	start = $2000, size = $1000;
+}
+
+SEGMENTS {
+	STARTUP:   load = MAIN, type = ro,  define = yes;
+    ONCE:      load = MAIN, type = ro,  optional = yes;
+    INIT:      load = MAIN, type = rw,  optional = yes;
+    BSS:       load = MAIN, type = bss, define = yes;
+    CODE:      load = MAIN, type = ro,  define = yes;
+}

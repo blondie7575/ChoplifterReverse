@@ -5,6 +5,8 @@
 ;  Created by Quinn Dunki on May 5, 2024
 ;
 
+.segment "STARTUP"
+
 MAINENTRY =		$2000		; Mandated by ProDOS for SYSTEM programs
 LOADBUFFER =	$4000		; Use HGR2 as a loading buffer
 PRODOS = 		$bf00		; MLI entry point

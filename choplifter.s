@@ -6,7 +6,7 @@
 	.endrepeat
 .endmacro
 
-
+.segment "STARTUP"
 .segment "LOCODE"
 
 

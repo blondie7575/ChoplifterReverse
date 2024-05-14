@@ -6,4 +6,9 @@ MEMORY {
 SEGMENTS {
 	LOCODE:	load = LORAM, type = rw;
 	HICODE:	load = HIRAM, type = rw;
+	
+	STARTUP:   load = LORAM, type = ro,  define = yes;
+    ONCE:      load = LORAM, type = ro,  optional = yes;
+    INIT:      load = LORAM, type = rw,  optional = yes;
+    BSS:       load = LORAM, type = bss, define = yes;
 }

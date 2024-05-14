@@ -38,7 +38,7 @@ emulate:
 		osascript V2Make.scpt $(PROJECT_DIR) $(VOLNAME)
 	
 loader:
-	@PATH=$(PATH):/usr/local/bin; $(CL65) -t apple2 --start-addr $(LOADERADDR) -lloader.lst loader.s -o $(EXECNAME)
+	@PATH=$(PATH):/usr/local/bin; $(CL65) -C linkerConfigLoader -t apple2 --start-addr $(LOADERADDR) -lloader.lst loader.s -o $(EXECNAME)
 	$(CAD) ADDFILE $(VOLNAME).po /$(VOLNAME) $(EXECNAME)
 	rm -f $(LOADEREXEC)
 	rm -f loader.o
