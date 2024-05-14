@@ -8,6 +8,7 @@ For a full writeup about this reverse-engineer and how it was done (along with l
 
 [https://blondihacks.com/?p=9505](https://blondihacks.com/?p=9505)
 
+A quick note on building this– the makefile ends by executing an AppleScript to launch Virtual II and boot the disk image. This is all obviously very Mac-specific and probably somewhat dependent on my local environment. If the build gets to the end and fails on the AppleScript (V2Make.Scpt) don't worry, the build completed and your disk image is good. You can remove the "emulate" target from the makefile if you're building on another platform, or if the AppleScript doesn't work for you.
 
 This reverse engineer was complete by me, Quinn Dunki, on May 12, 2024, but this is of course still Dan's game and it is a brilliant piece of work. Reverse engineering it only *increased* my admiration of it. I doubt anyone would say that about most of what I've written in my career. 😁
 
