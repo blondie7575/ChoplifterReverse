@@ -637,7 +637,7 @@ mainLoopRoutines:
         jsr     jumpUpdateEntities		; Update all game objects
         jsr     jumpDefragmentEntityList	; Maintains a master entity ID array
         jsr     jumpPageFlip			; Flip graphics buffers in hardware
-        jsr     jumpFlipPageMask			; ??? Must be related to page-flipping, given where it is
+        jsr     jumpFlipPageMask		; Flip page mask
         lda     ZP_BUFFER				; Swap render buffers in game state
         eor     #$FF
         sta     ZP_BUFFER
@@ -5651,7 +5651,7 @@ yInverted:
 
 joystickYDying:
 		lda     #$02
-        sta     ZP_ACCELY		; Sink into ground during death?
+        sta     ZP_ACCELY		; Keep us on the ground in a fixed spot while sinking
         rts
 
 joystickYTable:			; $768c
@@ -6035,7 +6035,7 @@ playSound:		; $78c2
 		bit     PREFS_SOUND
         bpl     playSoundDone		; Sound is disabled
         bit     ZP_GAMEACTIVE
-        bpl     playSoundDone		; Means sound already playing?
+        bpl     playSoundDone		; Don't play sound during demo and end scenes
         stx     SOUND_COUNTER_X
         sta     SOUND_COUNTER_A
         lda     ZP_SINK_Y			; Hacky abort to playing sound when chopper crash is done
@@ -9391,7 +9391,7 @@ jumpRenderMoonChunk:		jmp     renderMoonChunk			; $902a
 
 ; Renders all the little hostage houses
 renderHouses:	; $902d
-		sec							; Any houses remotely close to onscree?
+		sec							; Any houses remotely close to onscreen?
         lda     ZP_SCROLLPOS_H
         sbc     FARHOUSE_X_H
         bmi     renderHousesProbably
