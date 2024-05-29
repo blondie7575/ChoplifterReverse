@@ -123,6 +123,10 @@ initVectors:
 	sta		$4e		; ZP_GAMEINIT_L
 	lda		#$0b
 	sta		$4f		; ZP_GAMEINIT_H
+	lda		#$92
+	sta		$24		; ZP_INDIRECT_JMP_L
+	lda		#$0c
+	sta		$25		; ZP_INDIRECT_JMP_H
 
 	; Give ourselves a stub in $300 because Choplifter is about to erase this area of memory
 	lda 	#$20		; jsr jumpStartGraphicsDeadCode
