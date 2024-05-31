@@ -4168,17 +4168,17 @@ updateTank:		; $65c3
 				.word $001c
 
 		ldx     ZP_CURR_ENTITY
-        lda     ENTITY_X_L,x			; Choose thread animation frame based on X pos
+        lda     ENTITY_X_L,x			; Choose tread animation frame based on X pos
         and     #$04
         beq     updateTankFrame2
 
         jsr     jumpSetSpriteAnimPtr
-				.word $a066				; Tank thread (frame 1)
+				.word $a066				; Tank tread (frame 1)
         jmp     updateTankAnimate
 
 updateTankFrame2:
 		jsr     jumpSetSpriteAnimPtr
-				.word $a068				; Tank thread (frame 2)
+				.word $a068				; Tank tread (frame 2)
         
 updateTankAnimate:
 		lda     #$00					; Configure rendering
@@ -11542,8 +11542,8 @@ jetMasterSpriteTable:	; $a032
 ; All the sprite frames for rendering the enemy tanks
 tankSpriteTable:		; $a064
 	.word	$aa38		; Tank turret
-	.word	$aa40		; Tank thread (frame 1)
-	.word	$aa5a		; Tank thread (frame 2)
+	.word	$aa40		; Tank tread (frame 1)
+	.word	$aa5a		; Tank tread (frame 2)
 
 tankCannonSpriteTable:	; $a06a
 	.word	$aa74		; Tank cannon, facing full right
