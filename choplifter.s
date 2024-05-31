@@ -1255,7 +1255,7 @@ setImagePtr:						; $112d
 
 
 
-; Inititializes pointer to the title graphic to animate. Uses inline parameters at caller.
+; Initializes pointer to the title graphic to animate. Uses inline parameters at caller.
 setSpriteAnimPtr:					; $1153
 		sta     ZP_REGISTER_A
         sty     ZP_REGISTER_Y
@@ -1744,7 +1744,7 @@ applyClipping:				; $13b9
         lda     #$00
         ldx     #$08
 
-applyClippingFindTopLoop:					; Find the new top of the iamge for top clip amount
+applyClippingFindTopLoop:					; Find the new top of the image for top clip amount
 		lsr     ZP_DRAWEND
         bcc     applyClippingFindTopClamp	; Clamp to bottom so we don't overshoot
         clc
@@ -3050,7 +3050,7 @@ blitImageFlipDone:
 ; comments and labels, but writing a texture mapper that works with the insane memory map of Apple II
 ; high res is no small feat. Yes, he could have perhaps included multiple sprites for each angle the
 ; chopper flies at instead, but he didn't. It is not for me to judge, it is only for me to document.
-; Note that he doesn't always use this. When flying sideways, the chopper does use seperate sprites,
+; Note that he doesn't always use this. When flying sideways, the chopper does use separate sprites,
 ; for example. However when flying head on, there is only one sprite and this tilt renderer is used.
 
 ; Renders a sprite tilted to the left. Preserves registers.
@@ -4168,17 +4168,17 @@ updateTank:		; $65c3
 				.word $001c
 
 		ldx     ZP_CURR_ENTITY
-        lda     ENTITY_X_L,x			; Choose tread animation frame based on X pos
+        lda     ENTITY_X_L,x			; Choose thread animation frame based on X pos
         and     #$04
         beq     updateTankFrame2
 
         jsr     jumpSetSpriteAnimPtr
-				.word $a066				; Tank tread (frame 1)
+				.word $a066				; Tank thread (frame 1)
         jmp     updateTankAnimate
 
 updateTankFrame2:
 		jsr     jumpSetSpriteAnimPtr
-				.word $a068				; Tank tread (frame 2)
+				.word $a068				; Tank thread (frame 2)
         
 updateTankAnimate:
 		lda     #$00					; Configure rendering
@@ -4713,10 +4713,10 @@ mainRotorTiltTableY:	; $6e43 A lookup table for rendering every possible tilted 
 tailRotorHeadOnOffsets:	; $6e59  Pairs of X,Y offsets for tail rotor at all chopper tilts when head-on
 	.byte	$06,$08,$05,$07,$04,$06,$80,$80,$80,$80,$80,$80,$80,$80,$80,$80,$fd,$06,$fc,$07,$fb,$08			; Length uncertain
 
-tailRotorSideRightOffsetTable:		; $6e6f  Lookup table for offseting tail rotor at different chopper tilt angles (X,Y pairs)
+tailRotorSideRightOffsetTable:		; $6e6f  Lookup table for offsetting tail rotor at different chopper tilt angles (X,Y pairs)
 	.byte	$12,$0B,$12,$0A,$12,$09,$13,$08,$13,$07,$13,$05,$13,$04,$13,$03,$13,$03,$13,$02,$13,$01
 
-tailRotorSideLeftOffsetTable:		; $6e85  Lookup table for offseting tail rotor at different chopper tilt angles (X,Y pairs)
+tailRotorSideLeftOffsetTable:		; $6e85  Lookup table for offsetting tail rotor at different chopper tilt angles (X,Y pairs)
 	.byte	$F4,$01,$F3,$02,$F4,$03,$F3,$03,$F3,$04,$F3,$05,$F3,$07,$F4,$08,$F4,$09,$F5,$0A,$F5,$0B
 
 ; A table for computing offsets to the front of the chopper for all different
@@ -4781,7 +4781,7 @@ DOOR_X_L:			; $700A X position of base door, in 16-bit pixels (low byte). Always
 	.byte 	$d5
 DOOR_X_H:			; $700B X position of base door, in 16-bit pixels (high byte). Always $12
 	.byte 	$12
-FENCE_X_L:			; $700C 16-bit X position of the security fence (low byte). Alwats $74
+FENCE_X_L:			; $700C 16-bit X position of the security fence (low byte). Always $74
 	.byte	$74
 FENCE_X_H:			; $700D 16-bit X position of the security fence (high byte). Always $11
 	.byte	$11
@@ -6068,7 +6068,7 @@ SOUND_COUNTER_A:		; Outermost time loop
 ; Generates a random number and returns it in accumulator.
 ; The initial seed of this is whatever was in the accumulator when the loader was done. Probably not
 ; super random but that doesn't matter much in this game. Seeding random on a computer with no clock
-; or interrrupts is never an easy thing.
+; or interrupts is never an easy thing.
 randomNumber:				; $78f5
 		lda		ZP_RND
 		rol		ZP_RND
@@ -6508,7 +6508,7 @@ setRenderOffsetPos:
 		clc
         lda     ENTITY_Y,x				; Fetch Y position of entity
         adc     ENTITY_GROUND,x			; Offset for ground plane
-        adc     ZP_SCRATCH62				; Apply desired additional offet
+        adc     ZP_SCRATCH62				; Apply desired additional offset
         sta     ZP_RENDERPOS_Y			; ...then store as global render position
         lda     ZP_SCRATCH58
         beq     setRenderParamsDone
@@ -6650,7 +6650,7 @@ renderMountains:	;	$7c28
         lda     #$00
         sta     ZP_SCRATCH56
         clc
-        lda     ZP_SCRATCH5F		; Store final processsed X position in render parameters
+        lda     ZP_SCRATCH5F		; Store final processed X position in render parameters
         sta     ZP_RENDERPOS_XL
         lda     ZP_SCRATCH57
         adc     ZP_SCRATCH60
@@ -8682,7 +8682,7 @@ chopperHitByOrdinance:		; $8924
 		lda     #$01
         sta     ZP_DYING
         ldx     ZP_CURR_ENTITY
-        lda     #$04				; Force missle down after hit
+        lda     #$04				; Force missile down after hit
         sta     ENTITY_VY,x
         rts
 
@@ -11428,7 +11428,7 @@ initHelicopter:			; $9f18
         sta     ZP_DYING				; Death states
         sta     ZP_DEATHTIMER
 
-        sta     ZP_BTN0DOWN				; Miscellanous
+        sta     ZP_BTN0DOWN				; Miscellaneous
         sta     CURR_SHOTS
 
         sta     ZP_VELX_16_L			; Velocity
@@ -11542,8 +11542,8 @@ jetMasterSpriteTable:	; $a032
 ; All the sprite frames for rendering the enemy tanks
 tankSpriteTable:		; $a064
 	.word	$aa38		; Tank turret
-	.word	$aa40		; Tank tread (frame 1)
-	.word	$aa5a		; Tank tread (frame 2)
+	.word	$aa40		; Tank thread (frame 1)
+	.word	$aa5a		; Tank thread (frame 2)
 
 tankCannonSpriteTable:	; $a06a
 	.word	$aa74		; Tank cannon, facing full right
