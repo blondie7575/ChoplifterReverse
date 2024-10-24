@@ -191,7 +191,7 @@ fileReadGfx:
 	.byte 4
 	.byte 1					; File handle (we know it's gonna be 1)
 	.addr $a102
-	.word $1dfd				; Don't step on ProDOS when loading graphics
+	.word $1ded				; Don't step on ProDOS when loading graphics
 fileReadGfxLen:
 	.word 0					; Result (bytes read)
 
