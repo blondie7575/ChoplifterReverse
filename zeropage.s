@@ -125,7 +125,7 @@ ZP_CURR_X_BYTEC 		= $87		; A cache of ZP_CURR_X_BYTE
 ZP_CURR_Y				= $88		; Y position of current rendering
 
 ZP_RENDER_CURRBIT		= $89		; Current horizontal bit within byte in VRAM while rendering
-ZP_RENDER_CURRBYTE		= $8A		; Current horizontal byte in VRAM while rendering
+ZP_RENDER_CURRBYTE		= $8A		; Current horiztonal byte in VRAM while rendering
 ZP_RENDER_CURR_W		= $8B		; Current width of image data while rendering, in pixels
 ZP_PALETTE				= $8C		; Palette bit to use when blitting
 
